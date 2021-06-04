@@ -1,2 +1,18 @@
 # Analysis-of-Weather-near-Ann-Arbor
 Investigation of possible patterns with temperatures near Ann Arbor.
+
+In this document, I analyzed an NOAA (National Oceanic and Atomospheric Administration - U.S. Department of Commerce) dataset from the Coursera course, Applied Plotting, Charting & Data Representation in Python. The data is from the National Centers for Environmental Information (NCEI) Daily Global Historical Climatology Network (GHCN-Daily) [Version 3.26](https://www1.ncdc.noaa.gov/pub/data/ghcn/daily/readme.txt). The dataset records highest and lowest daily temperature observations made by 24 weather stations around Ann Arbor Michigan from 2005 to 2015 inclusive.
+
+For each of the dates recorded in the dataset, I select the highest temperature amongst the 24 stations as the daily high temperature. Similarly, I do the same for the daily low temperature. With these quantities, I investigated the following. 
+
+**Question 1:** *Do the daily high and low temperatures vary significantly in the eleven years of observations (2005 - 2015)?*
+
+**Question 2:** *Do the above two metrics (daily high and low temperatures) exhibit any discernable long-term behavior, and is it affected by any short-term fluctuations? How correlated are these two metrics?*
+
+For Question 1, I select a year and compare its observations with those made in the previous years. I plot line graphs of record daily highs and lows for the previous years. Record daily highs are highest temperatures recorded for any one day in a year (leap years are ignored). Record daily lows are obtained similarly. Then I make a scatter plot of daily highs and lows in the selected year that surpass the record daily highs and lows respectively.
+
+By varying the year selected, I concluded that the daily high and low temperatures do not differ significantly between the eleven years of observations. This is because I noticed the following trend. As the selected year moves forward, the number of points in the corresponding scatter plot decreased, indicating that the distributions of daily highs and lows do not differ significantly over the years.  Moreover, in each of the graphs, the general contour of the scatter plot more or less followed the contour of the boundaries marked by the two line graphs representing record highs and lows in the previous years.
+
+For Question 2, I first plotted the daily high and low temperatures recorded from 2005 to 2015 inclusive. Then, for each of the following time periods: Bidaily (k = 2 days), Weekly (k = 7 days), Biweekly (k = 14 days), Monthly (k = 30 days), Bimonthly (k = 60 days), Yearly (k = 365 days), Biyearly (k = 730 days), I plotted the Simple Moving Averages, with k days as the period, for the daily high temperatures in my first plot and then plotted similar averages for the daily low temperatures.
+
+There were three sets of observations I made based on the plots produced. When the period was 60 days or less, I concluded that in the long-term, each of the two metrics behave sinusoidally, being dictated by the seasons of each year, and that short-term fluctuations, though prominent, do not affect this long-term behavior. For the longer periods, corresponding to nearly exact multiples of years, I could not discern any simple pattern from the average yearly temperatures - there were some large fluctuations that were present - but in the long-run, it appears that these yearly averages remain stable. Lastly, within all of the graphs, the plots of the two metrics (simple moving averages of the daily high and low temperatures) are largely correlated with each other in the long term and only differ in the short term.
